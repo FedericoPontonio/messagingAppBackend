@@ -1,0 +1,28 @@
+{
+  "devDependencies": {
+    "@babel/preset-env": "^7.26.7",
+    "jest": "^29.7.0",
+    "prisma": "^6.2.1",
+    "supertest": "^7.0.0"
+  },
+  "name": "messagingappbackend",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "dev": "DATABASE_URL=postgresql://federico:fefe@localhost:5432/messagingapptests node --watch app.js",
+    "test": "NODE_ENV=test && jest --verbose",
+    "migrate": "npx prisma migrate dev"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@prisma/client": "^6.2.1",
+    "bcryptjs": "^2.4.3",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "jsonwebtoken": "^9.0.2",
+    "node": "^18.20.6"
+  }
+}
