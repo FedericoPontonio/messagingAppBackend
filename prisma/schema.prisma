@@ -29,6 +29,8 @@ model Chat {
   name         String?             @default("")
   partecipants ChatPartecipation[]
   messages     Message[]
+  image        String?
+  isGroupChat  Boolean             @default(false)
 }
 
 model ChatPartecipation {

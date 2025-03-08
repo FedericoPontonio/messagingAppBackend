@@ -4,9 +4,9 @@ const messagesRouter = express.Router()
 const messagesController = require('../controllers/messagesController');
 
 //get all messages per chat
-messagesRouter.get('/', async (req, res) => {
+messagesRouter.get('/:chatId', async (req, res) => {
     try {
-        const messagesByChat = await messagesController.getMessagesByChatId(req.body.chatId);
+        const messagesByChat = await messagesController.getMessagesByChatId(req.params.chatId);
         res.status(200).json({
             message:'Messages retrieved successfully.',
             data: messagesByChat

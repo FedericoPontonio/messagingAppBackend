@@ -1,0 +1,17 @@
+problem: retrieve the chats in which the user participate.
+    1_ in chatParticipation table:find the entries with userId in it.
+        store the chat ids. on chat obj with these ids
+            if name != null
+                -chatParticipation[].expclude userId; take ulterior user
+                    use it as div String
+                take messages?
+
+
+
+
+                
+            else
+                -use name as div String
+                take messages?
+            
+

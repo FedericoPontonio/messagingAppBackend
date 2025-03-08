@@ -2,12 +2,16 @@ const prisma = require('../prisma.config')
 const bcrypt = require('bcryptjs')
 
 
-async function getUserByUsername(reqObj) {
+async function getUserByUsername(username) {
     return await prisma.user.findUnique({
         where: {
-            username: reqObj.body.username
+            username
         }
     });
+}
+
+async function getAllUsers() {
+    return await prisma.user.findMany()
 }
 
 async function createUser(req) {
@@ -30,5 +34,6 @@ async function deleteUser(reqObj) {
 module.exports = {
     getUserByUsername,
     deleteUser,
-    createUser
+    createUser,
+    getAllUsers
 }

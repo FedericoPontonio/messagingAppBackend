@@ -3,7 +3,7 @@ const userController = require('../controllers/userController')
 
 async function authenticatePassword(req, res, next) {
     try {
-        const user = await userController.getUserByUsername(req)
+        const user = await userController.getUserByUsername(req.body.username)
         if (user && await bcrypt.compare(req.body.password, user.password)) {
             next()
         } else {

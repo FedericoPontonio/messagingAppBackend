@@ -21,7 +21,7 @@ async function deleteMessage(messageId) {
 async function getMessagesByChatId(chatId) {
     return await prisma.message.findMany({
         where: {
-            chatId: chatId
+            chatId: +chatId
         },
         orderBy: {
             createdAt: 'desc'

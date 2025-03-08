@@ -44,7 +44,7 @@ test("index route works", done => {
 
 test('unauthorized user', done =>  {
   request(app)
-    .get("/users")
+    .post("/users/getToken")
     .type('form')
     //ANY password other than "passwordTest" is a mismatch therefore fails this test
     .send({username:'userTest',password:'wrongPassword4Test'})
@@ -60,7 +60,7 @@ test('unauthorized user', done =>  {
 test('validate token', done => {
   let token;
   request(app)
-    .get("/users")
+    .post("/users/getToken")
     .type('form')
     .send({username:'userTest', password:'passwordTest'})
     .expect("Content-Type", /json/)
