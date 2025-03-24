@@ -96,6 +96,7 @@ test('create existing user', done =>  {
   request(app)
     .post("/users")
     .type('form')
+    //this test doesn't take into account the password validation middleware
     .send({username:'userTest',password:'passwordTest'})
     .expect("Content-Type", /json/)
     .expect(res => {

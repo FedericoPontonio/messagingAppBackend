@@ -23,6 +23,16 @@ async function createUser(req) {
     })
 }
 
+async function findUsersBySearchParameter(searchParameter) {
+    return await prisma.user.findMany({
+        where:{
+            username: {
+                contains: searchParameter
+        }
+    }
+    })
+}
+
 async function deleteUser(reqObj) {
     await prisma.user.delete({
         where: {
@@ -35,5 +45,6 @@ module.exports = {
     getUserByUsername,
     deleteUser,
     createUser,
-    getAllUsers
+    getAllUsers,
+    findUsersBySearchParameter,
 }

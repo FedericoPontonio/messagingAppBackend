@@ -18,7 +18,7 @@ Content-Type: application/json
 
 
 ### create user
-POST http://localhost:3000/users/
+POST http://localhost:3000/users/signUp
 Content-Type: application/json
 
 {
@@ -26,6 +26,15 @@ Content-Type: application/json
     "password": "ferdi",
     "confirmPassword": "ferdi"
 }
+
+### find user with string
+POST http://localhost:3000/users/
+Content-Type: application/json
+
+{
+    "username": "fef"
+}
+
 
 ### test authenticate
 GET http://localhost:3000/users/authorization
@@ -53,6 +62,15 @@ Content-Type: application/json
     "chatId": 9,
     "userId": 365
 }
+### change chat name
+PATCH http://localhost:3000/chat/rename
+Content-Type: application/json
+
+{
+    "id": "5",
+    "name": "friends group"
+}
+
 
 ### create message
 POST  http://localhost:3000/messages

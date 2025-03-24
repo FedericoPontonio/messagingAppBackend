@@ -86,7 +86,18 @@ chatRouter.post('/addUser', async (req, res) => {
     }
 })
 
-
+chatRouter.patch('/rename', async (req, res) => {
+    try {
+        await chatController.renameChat(req.body.id, req.body.name);
+        res.status(200).json({
+            message: 'Chat renamed successfully.'
+        })
+    } catch (error) {
+        res.status(500).json({
+            message: 'Internal server error.'
+        })
+    }
+})
 
 
 

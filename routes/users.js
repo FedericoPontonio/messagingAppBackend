@@ -32,7 +32,7 @@ usersRouter.post('/getToken', authenticatePassword, async (req, res) => {
 });
 
 //create user
-usersRouter.post('/', validateSignIn, async(req, res)=> {
+usersRouter.post('/signUp', validateSignIn, async(req, res)=> {
     try {
         await userController.createUser(req)
         return res.json({
@@ -84,6 +84,19 @@ usersRouter.get('/allUsers', async (req, res) => {
         res.status(200).json({
             allUsers
         })
+    } catch (error) {
+        console.log(error)
+        res.status(500).json({
+            message:'internal server error'
+        })
+    }
+})
+//use case: find user with search bar
+usersRouter.post('/', async (req, res) => {
+    try {
+        const searchParameter = req.body.username;
+        const searchResult = await userController.findUsersBySearchParameter(searchParameter)
+        console.log(searchResult)
     } catch (error) {
         console.log(error)
         res.status(500).json({

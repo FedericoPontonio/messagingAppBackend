@@ -114,6 +114,17 @@ async function addUser(chatId, userId) {
             userId: userId
         }
     })
+};
+
+async function renameChat(id, name) {
+    await prisma.chat.update({
+        where: {
+            id: +id
+        },
+        data: {
+            name: name
+        }
+    })
 }
 
 module.exports = {
@@ -125,5 +136,6 @@ module.exports = {
     getChatObjectsByChatIds,
     enstablishChatName,
     chatObjectsRearranged,
-    getChatById
+    getChatById,
+    renameChat
 }
